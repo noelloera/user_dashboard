@@ -12,10 +12,23 @@ export default function Counter(props) {
   const subtractToCounter = () => {
     setCounterValue(counterValue - inputValue);
   };
+  //Changes counter color
+  const counterColor = () => {
+    if (counterValue >= 100) {
+      return "green";
+    }
+    if (counterValue <= -100) {
+      return "red";
+    }
+    return "";
+  };
+
   return (
     <div>
       <h1 data-testid="header">New Counter</h1>
-      <h2 data-testid="counter">{counterValue}</h2>
+      <h2 data-testid="counter" className={counterColor()}>
+        {counterValue}
+      </h2>
       <button data-testid="subtract-btn" onClick={subtractToCounter}>
         -
       </button>
@@ -25,7 +38,7 @@ export default function Counter(props) {
         type="number"
         value={inputValue}
         onChange={(e) => {
-          setInputValue(e.target.value);
+          setInputValue(parseInt(e.target.value));
         }}
       ></input>
       <button data-testid="add-btn" onClick={addToCounter}>
