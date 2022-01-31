@@ -12,6 +12,7 @@ export default function Counter(props) {
   const subtractToCounter = () => {
     setCounterValue(counterValue - inputValue);
   };
+
   //Changes counter color
   const counterColor = () => {
     if (counterValue >= 100) {

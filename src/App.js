@@ -1,10 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Counter from "./containers/Counter";
+import Login from "./containers/Login";
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Login
+        submit={(values) => {
+          alert(JSON.stringify(values));
+        }}
+      />
     </div>
   );
 }
